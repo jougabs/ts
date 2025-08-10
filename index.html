@@ -1,117 +1,59 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>イエローの風船献上説</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>るでぃくん大好きファンクラブ</title>
 <style>
-  :root {
-    --bg-color: #0b0b10;
-    --card-color: #0f1720;
-    --accent-color: #ffd800;
-    --text-muted: #9aa4b2;
-    --text-light: #f4f9ff;
-  }
-  * {
-    box-sizing: border-box;
-  }
   body {
-    margin: 0;
-    min-height: 100vh;
-    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Segoe UI", Roboto, "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
-    background: radial-gradient(1200px 600px at 10% 10%, #081026 0%, #05050a 40%), var(--bg-color);
-    color: var(--text-light);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-  }
-  .container {
-    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
-    max-width: 900px;
-    border-radius: 16px;
-    box-shadow: 0 10px 40px rgba(2,6,23,0.7);
-    display: flex;
-    gap: 40px;
-    padding: 2.5rem 3rem;
-  }
-  .text-area {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    background: #fff8f0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 3px solid #ff69b4;
+    border-radius: 12px;
   }
   h1 {
-    font-size: 2.4rem;
-    margin: 0 0 1rem 0;
-    color: var(--accent-color);
-    letter-spacing: 0.05em;
+    color: #e91e63;
     text-align: center;
-  }
-  .profile-img {
-    display: block;
-    margin: 0 auto 1.8rem auto;
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 0 12px rgba(255, 216, 0, 0.8);
+    margin-bottom: 30px;
+    font-weight: bold;
   }
   p {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    margin: 0;
-    text-align: center;
+    font-size: 1.1em;
+    line-height: 1.5em;
   }
-  .highlight {
-    font-weight: 700;
-    color: var(--accent-color);
-    margin-top: 1.2rem;
-    font-size: 1.4rem;
-    text-align: center;
+  .member {
+    background: #ffe4f1;
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    border: 2px solid #ff80ab;
   }
-  .balloon-container {
-    width: 180px;
-    height: 230px;
-    position: relative;
-  }
-  .balloon-img {
-    width: 160px;
-    height: auto;
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: float 6s ease-in-out infinite;
-  }
-  @keyframes float {
-    0% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(-28px); }
-    100% { transform: translateX(-50%) translateY(0); }
-  }
-  @media (max-width: 720px) {
-    .container {
-      flex-direction: column;
-      align-items: center;
-      padding: 1.5rem;
-    }
-    .balloon-container {
-      margin-top: 2rem;
-    }
+  .member strong {
+    color: #d81b60;
   }
 </style>
 </head>
 <body>
-  <main class="container" role="main" aria-label="イエローの風船献上説説明">
-    <section class="text-area">
-      <h1>イエローの風船献上説</h1>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Yellow_Balloon.svg/1200px-Yellow_Balloon.svg.png" alt="イエローの風船のイメージ" class="profile-img" />
-      <p>イエローの風船は囲いを利用し、自分の献上を隠蔽しようとしている。また、独自の調査によると、Twitterのリプ欄で応援しただけでブロックされるという酷い結果。</p>
-      <p class="highlight">イエローの風船を許すな🎈</p>
-    </section>
-    <aside class="balloon-container" aria-hidden="true">
-      <img class="balloon-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Yellow_Balloon.svg/1200px-Yellow_Balloon.svg.png" alt="黄色い風船のイラスト" />
-    </aside>
-  </main>
+  <h1>るでぃくん大好きファンクラブ</h1>
+  <p>私はるでぃくんを愛してます。なぜなら可愛くて俺のこと大好きって言ってくれて両思いで俺の夫だから。</p>
+
+  <div class="member">
+    <strong>えす</strong><br />
+    かわいさ一切ないけど好きだよ。あいしてる
+  </div>
+
+  <div class="member">
+    <strong>あやのたん</strong><br />
+    めっちゃ可愛い　怒った時こんな感じですき「アーモウ障害者❓🤓」萌えだよね〜w
+  </div>
+
+  <div class="member">
+    <strong>むが</strong><br />
+    筋肉もりもり変態野郎だけどかっこいい　なんかよくわかんないけど彼女いるらしくてムカつくから好き
+  </div>
 </body>
 </html>
