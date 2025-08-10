@@ -1,5 +1,282 @@
-<title>イエローの風船の件について嫦娥さんが話します</title>
-<a href="https://x.com/yellownohuusen?s=21">イエローのX</a>
-<font size="35" >イエローの風船献上説</font>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<font size＝"30" >
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>イエローの風船献上説</title>
+<style>
+  :root{
+    --bg:#0b0b10;
+    --card:#0f1720;
+    --accent:#ffd800;
+    --muted:#9aa4b2;
+    --glass: rgba(255,255,255,0.04);
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Segoe UI", Roboto, "Noto Sans JP", "Helvetica Neue", Arial;
+    background: radial-gradient(1200px 600px at 10% 10%, #081026 0%, #05050a 40%), var(--bg);
+    color: #e6eef8;
+    -webkit-font-smoothing:antialiased;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+  }
+
+  .container{
+    width:100%;
+    max-width:920px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+    border-radius:16px;
+    box-shadow: 0 10px 40px rgba(2,6,23,0.7);
+    overflow:hidden;
+    display:grid;
+    grid-template-columns: 1fr 420px;
+    gap:0;
+    min-height:520px;
+  }
+
+  /* 左側：メッセージ */
+  .left{
+    padding:36px;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  h1{
+    margin:0 0 12px 0;
+    font-size:28px;
+    letter-spacing:0.02em;
+  }
+  .subtitle{
+    color:var(--muted);
+    margin-bottom:22px;
+  }
+  .message{
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius:12px;
+    padding:20px;
+    font-size:18px;
+    line-height:1.8;
+    color:#f4f9ff;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+  }
+
+  .cta-row{
+    display:flex;
+    gap:12px;
+    margin-top:18px;
+    align-items:center;
+  }
+  .btn{
+    background:linear-gradient(180deg,var(--accent), #ffbf00);
+    color:#0b0b10;
+    border:none;
+    padding:10px 14px;
+    border-radius:10px;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow: 0 6px 18px rgba(255,200,0,0.14);
+  }
+  .btn.ghost{
+    background:transparent;
+    border:1px solid rgba(255,255,255,0.06);
+    color:var(--muted);
+    font-weight:600;
+  }
+
+  /* 右側：ビジュアル */
+  .right{
+    position:relative;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.03));
+    padding:26px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+
+  .balloon-wrap{
+    width:100%;
+    max-width:360px;
+    height:420px;
+    position:relative;
+  }
+
+  /* 風船 */
+  .balloon{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    bottom:40px;
+    width:160px;
+    height:200px;
+    border-radius:50% 50% 48% 48%;
+    background: radial-gradient(circle at 30% 25%, #fff8b8 0%, var(--accent) 30%, #ffb800 60%);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.45), inset -8px -12px 30px rgba(255,255,255,0.08);
+    animation: float 6s ease-in-out infinite;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    overflow:visible;
+  }
+  .balloon::after{
+    content:"";
+    position:absolute;
+    width:14px;height:70px;
+    background: linear-gradient(180deg,#d4a800,#b56f00);
+    bottom:-66px;
+    border-radius:8px;
+    transform:translateY(0) rotate(-8deg);
+    animation: string-sway 3s ease-in-out infinite;
+  }
+
+  @keyframes float{
+    0%{ transform: translateX(-50%) translateY(0) }
+    50%{ transform: translateX(-50%) translateY(-28px) }
+    100%{ transform: translateX(-50%) translateY(0) }
+  }
+  @keyframes string-sway{
+    0%{ transform: translateY(0) rotate(-8deg) }
+    50%{ transform: translateY(6px) rotate(-2deg) }
+    100%{ transform: translateY(0) rotate(-8deg) }
+  }
+
+  /* 囲い（隠蔽）を示すグリッド */
+  .cage{
+    position:absolute;
+    inset:18px;
+    border-radius:12px;
+    pointer-events:none;
+    background-image:
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 24px 24px, 24px 24px;
+    mix-blend-mode:overlay;
+    opacity:0.9;
+    animation: cage-fade 1.2s ease forwards;
+  }
+
+  @keyframes cage-fade{
+    from{ opacity:0 }
+    to{ opacity:0.9 }
+  }
+
+  /* 隠蔽オーバーレイ(モーダル的) */
+  .veil{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(5,5,6,0.35), rgba(2,2,3,0.6));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:8;
+    transition:opacity .35s ease, transform .35s ease;
+  }
+  .veil.hidden{
+    opacity:0; pointer-events:none; transform:scale(.98);
+  }
+  .veil .text{
+    max-width:300px;
+    text-align:center;
+    color:#ffd;
+    font-weight:700;
+    font-size:20px;
+    text-shadow:0 4px 18px rgba(0,0,0,0.6);
+    padding:18px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,0.04);
+  }
+
+  /* footer small print */
+  .foot{
+    margin-top:auto;
+    color:var(--muted);
+    font-size:12px;
+    margin-left:2px;
+  }
+
+  /* responsive */
+  @media (max-width:880px){
+    .container{ grid-template-columns: 1fr; min-height:640px; }
+    .right{ order:-1; min-height:260px; padding-top:40px; }
+    .left{ padding:20px; }
+  }
+</style>
+</head>
+<body>
+  <div class="container" role="main" aria-labelledby="main-title">
+    <section class="left" aria-label="メッセージ">
+      <h1 id="main-title">イエローの風船献上説</h1>
+      <div class="subtitle">真実は見えないところにある — 覆いと囲いに注意せよ</div>
+
+      <div class="message" id="msg">
+        彼は、献上をしてるが、囲いを使用し、隠蔽している。彼を許すな。<br>
+        <small style="color:var(--muted);">（※ この文章はサンプルです。公開時は内容に注意してください）</small>
+      </div>
+
+      <div class="cta-row" style="margin-top:18px;">
+        <button class="btn" id="toggleVeil">覆いを隠す / 見る</button>
+        <button class="btn ghost" id="editBtn">テキストを編集</button>
+      </div>
+
+      <div class="foot" style="margin-top:18px;">
+        表現の調整や公開方法については注意してください。実在の個人名を含めると法的リスクがあります。
+      </div>
+    </section>
+
+    <aside class="right" aria-label="ビジュアル">
+      <div class="balloon-wrap" aria-hidden="true">
+        <div class="balloon" id="balloon"></div>
+        <div class="cage" aria-hidden="true"></div>
+
+        <div class="veil" id="veil">
+          <div class="text" id="veilText">囲い（隠蔽）がかかっています</div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+<script>
+  // ボタンで覆いの表示切替
+  const veil = document.getElementById('veil');
+  const toggleBtn = document.getElementById('toggleVeil');
+  toggleBtn.addEventListener('click', () => {
+    veil.classList.toggle('hidden');
+    toggleBtn.textContent = veil.classList.contains('hidden') ? '覆いを表示' : '覆いを隠す / 見る';
+  });
+
+  // テキストを編集（簡易モーダルではなく prompt）
+  const editBtn = document.getElementById('editBtn');
+  const msg = document.getElementById('msg');
+  editBtn.addEventListener('click', () => {
+    const current = msg.innerText.replace(/[\r\n]+/g, '\n');
+    const res = prompt('表示するテキストを編集してください（改行はそのまま）', current);
+    if(res !== null){
+      // シンプルに危険なHTMLを無効化して反映
+      const safe = res.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      msg.innerHTML = safe.replace(/\n/g,'<br>');
+    }
+  });
+
+  // 初期：覆いは表示
+  veil.classList.remove('hidden');
+
+  // アクセント：クリックで風船が少し弾む
+  const balloon = document.getElementById('balloon');
+  balloon.addEventListener('click', () => {
+    balloon.animate([
+      { transform: 'translateX(-50%) translateY(0) scale(1)' },
+      { transform: 'translateX(-50%) translateY(-20px) scale(1.04)' },
+      { transform: 'translateX(-50%) translateY(0) scale(1)' }
+    ], { duration: 420, easing: 'cubic-bezier(.2,.9,.2,1)'});
+  });
+</script>
+</body>
+</html>
