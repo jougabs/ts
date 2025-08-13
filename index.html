@@ -4,44 +4,88 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>イエローの風船、また敗北</title>
-<meta name="description" content="イエローの風船、また負けた！煽ってきたのに、りん（俺）が勝利。ワンタップでSNSに拡散できます。">
 <style>
-  :root{
-    --bg1:#1a2233; --bg2:#0b0f14; --card1:#141c26; --card2:#0e141b;
-    --ink:#e6eef5; --muted:#9aa4b2; --good:#22c55e; --bad:#ff4d67;
-    --x:#000; --line:#06C755; --insta:#E4405F;
-  }
-  *{box-sizing:border-box}
   body {
     margin:0;
-    background: radial-gradient(ellipse at top, var(--bg1), var(--bg2));
-    color: var(--ink);
-    font-family: system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    background: radial-gradient(ellipse at top, #1a2233, #0b0f14);
+    color: #e6eef5;
+    font-family: system-ui, sans-serif;
     display: flex;
     justify-content: center;
     padding: 20px;
-    min-height: 100svh;
   }
-  .wrap { max-width: 880px; width: 100%; }
+  .wrap { max-width: 800px; width: 100%; }
   h1 {
     font-size: clamp(20px, 5vw, 36px);
     font-weight: 900;
     margin: 0 0 10px;
   }
-  .sub { color: var(--muted); margin-bottom: 20px; }
+  .sub { color: #9aa4b2; margin-bottom: 20px; }
   .card {
-    background: linear-gradient(180deg, var(--card1), var(--card2));
+    background: linear-gradient(180deg, #141c26, #0e141b);
     border: 1px solid #243244;
     border-radius: 16px;
     padding: 20px;
     box-shadow: 0 10px 40px rgba(0,0,0,.5);
   }
   .vs {
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 16px; margin: 16px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 16px 0;
   }
-  .player { flex: 1; text-align: center; }
+  .player {
+    flex: 1;
+    text-align: center;
+  }
   .name { font-weight: 900; font-size: 20px; }
-  .tag { font-size: 12px; color: var(--muted); margin-top: 4px; }
-  .score { font-size: 40px; font-weight: 900; }
-  .you { color
+  .tag { font-size: 12px; color: #9aa4b2; margin-top: 4px; }
+  .score {
+    font-size: 40px;
+    font-weight: 900;
+  }
+  .you { color: #22c55e; }
+  .rival { color: #ff4d67; }
+  .btn {
+    display: inline-block;
+    padding: 10px 14px;
+    margin-top: 12px;
+    border-radius: 8px;
+    background: linear-gradient(180deg,#6f4bff,#4b5dff);
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>イエローの風船、また負けた！</h1>
+  <div class="sub">煽ってきたのに、りん（俺）がまた勝ってしまいました。</div>
+  <div class="card">
+    <div class="vs">
+      <div class="player">
+        <div class="name rival">イエローの風船</div>
+        <div class="tag">挑戦者</div>
+      </div>
+      <div class="score">0 - 2</div>
+      <div class="player">
+        <div class="name you">りん</div>
+        <div class="tag">勝者</div>
+      </div>
+    </div>
+    <a href="#" class="btn" onclick="copyText()">この結果を拡散！</a>
+  </div>
+</div>
+
+<script>
+function copyText() {
+  const text = "イエローの風船、また負けた！煽ってきたのにりんが2-0で勝利😂 #ブロスタ #GG";
+  navigator.clipboard.writeText(text).then(()=>{
+    alert("拡散用テキストをコピーしました！");
+  });
+}
+</script>
+</body>
+</html>
