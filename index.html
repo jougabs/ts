@@ -1,59 +1,78 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>るでぃくん大好きファンクラブ</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>煽った結果：りんに敗北レポート</title>
+<meta name="description" content="煽った結果、りんに負けました（ブロスタ）。ワンタップで共有できる敗北レポートメーカー。">
 <style>
-  body {
-    background: #fff8f0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 20px;
-    border: 3px solid #ff69b4;
-    border-radius: 12px;
+  :root{
+    --bg:#0b0f14; --card:#121a23; --ring:#ffd800; --text:#e9eef5; --muted:#90a1b6;
+    --accent:#8b5cf6; --good:#22c55e; --bad:#ff4d67;
   }
-  h1 {
-    color: #e91e63;
-    text-align: center;
-    margin-bottom: 30px;
-    font-weight: bold;
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:radial-gradient(1200px 600px at 20% -10%, #1b2430, #0b0f14);
+    color:var(--text); font-family: ui-sans-serif,system-ui,"Hiragino Kaku Gothic ProN","Meiryo",sans-serif;
+    min-height:100dvh; display:flex; align-items:center; justify-content:center; padding:20px;
   }
-  p {
-    font-size: 1.1em;
-    line-height: 1.5em;
-  }
-  .member {
-    background: #ffe4f1;
-    padding: 15px 20px;
-    margin: 20px 0;
-    border-radius: 10px;
-    border: 2px solid #ff80ab;
-  }
-  .member strong {
-    color: #d81b60;
-  }
+  .wrap{max-width:980px; width:100%}
+  header{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:14px}
+  .logo{display:flex; gap:10px; align-items:center}
+  .badge{width:40px; height:40px; border-radius:12px; background:conic-gradient(var(--ring), #ff6a00, #ff3cac, var(--ring)); padding:2px}
+  .badge>span{display:grid; place-items:center; width:100%; height:100%; border-radius:10px; background:#0b0f14; font-weight:800}
+  .card{background:linear-gradient(180deg,#141c26,#0e141b); border:1px solid #1f2936; border-radius:16px; padding:16px; box-shadow:0 18px 60px rgba(0,0,0,.35)}
+  .grid{display:grid; grid-template-columns:1fr; gap:14px}
+  @media(min-width:860px){ .grid{grid-template-columns:1.15fr .85fr} }
+
+  .gen{border:1px solid #243244; border-radius:14px; padding:14px; background:#0f1520}
+  label{font-size:13px; color:var(--muted); display:block; margin:10px 0 6px}
+  input,select,textarea{width:100%; padding:12px 14px; border-radius:10px; background:#0c1219; color:var(--text); border:1px solid #223044; outline:none}
+  .row{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+  .btns{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px}
+  button{appearance:none; border:none; border-radius:12px; padding:12px 14px; font-weight:800; cursor:pointer; background:linear-gradient(180deg,#2a3750,#1a2433); color:var(--text); border:1px solid #253349}
+  button.primary{background:linear-gradient(180deg,#6f4bff,#4b5dff); border:0}
+  button.good{background:linear-gradient(180deg,#34d399,#16a34a)}
+  button.ghost{background:transparent; border:1px dashed #324357}
+
+  .shareCard{border:1px solid #243244; border-radius:14px; padding:14px; background:#0f1520; overflow:hidden}
+  .headline{font-size:clamp(20px,3.4vw,30px); font-weight:900; line-height:1.2}
+  .hl-badge{display:inline-block; padding:.3em .7em; border-radius:999px; background:#1c2430; border:1px solid #2a3a50; color:#ffd800; font-weight:800; margin-right:6px}
+  .vs{display:flex; align-items:center; justify-content:space-between; gap:8px; margin:10px 0 12px}
+  .name{flex:1; font-weight:800; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+  .score{font-size:clamp(26px,5vw,40px); font-weight:900; letter-spacing:.5px}
+  .you{color:var(--good)} .rival{color:var(--bad)}
+  .pill{display:inline-flex; gap:6px; align-items:center; padding:.4em .7em; border-radius:999px; background:#0b1118; border:1px solid #263448; font-size:12px; color:var(--muted)}
+  .marquee{overflow:hidden; white-space:nowrap; border-top:1px dashed #2a3a50; border-bottom:1px dashed #2a3a50; padding:8px 0; margin:8px 0}
+  .marquee span{display:inline-block; padding-left:100%; animation:slide 16s linear infinite}
+  @keyframes slide{to{transform:translateX(-100%)}}
+  footer{color:#7b8ea6; font-size:12px; text-align:center; margin-top:8px}
+  .ring{width:86px; height:86px; border-radius:50%; padding:4px; background:conic-gradient(var(--ring), #ff6a00, #ff3cac, var(--ring))}
+  .ring>div{width:100%; height:100%; border-radius:50%; background:#0e151f; display:grid; place-items:center; font-weight:900}
+  .center{display:flex; align-items:center; gap:10px}
+  canvas{display:none}
 </style>
 </head>
 <body>
-  <h1>るでぃくん大好きファンクラブ更新しました</h1>
-  <p>私はるでぃくんを愛してます。なぜなら可愛くて俺のこと大好きって言ってくれて両思いで俺の夫だから。</p>
+<div class="wrap">
+  <header>
+    <div class="logo">
+      <div class="badge"><span>GG</span></div>
+      <div>
+        <div style="font-weight:900;">敗北レポートメーカー</div>
+        <div style="font-size:12px;color:var(--muted)">煽った結果 → りんに負けました記録</div>
+      </div>
+    </div>
+    <div class="pill">#BrawlStars #ブロスタ</div>
+  </header>
 
-  <div class="member">
-    <strong>えす</strong><br />
-    かわいさ一切ないけど好きだよ。あいしてる
-  </div>
+  <div class="card grid">
+    <!-- 左：結果カード -->
+    <section class="shareCard" id="card">
+      <div class="headline">
+        <span class="hl-badge">速報</span> 煽ったのに<strong id="winnerText">りん</strong>に<b>敗北</b>
+      </div>
 
-  <div class="member">
-    <strong>あやのたん</strong><br />
-    めっちゃ可愛い　怒った時こんな感じですき「アーモウ障害者❓こいつ片親やんけぇ(ニチャア)🤓」萌えだよね〜w
-  </div>
-
-  <div class="member">
-    <strong>むが</strong><br />
-    筋肉もりもり変態野郎だけどかっこいい　なんかよくわかんないけど彼女いるらしくてムカつくから好き
-  </div>
-</body>
-</html>
+      <div class="vs">
+        <div class="name you" id="nameYou">あなた</div>
+        <div class="score" id="scoreText">
